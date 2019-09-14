@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Clang-formatter file
+.clang-format
+
+# build directory
+build/
+
+# vs-code
+.vscode/
