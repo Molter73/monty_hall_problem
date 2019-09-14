@@ -12,6 +12,6 @@ Compilation has been done through gcc on a Debian 10 machine, simply running mak
 
 ## Execution
 
-Running the compiled ./build/game will run the Monty Hall game 1.000.000 automatically and output the results unto the console.
+Running the compiled ./build/game will run the Monty Hall game 1.000.000 times automatically and output the results unto the console.
 
 ./build/game -h for more options.
