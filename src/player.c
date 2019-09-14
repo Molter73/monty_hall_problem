@@ -1,6 +1,6 @@
 #include "player.h"
 
-const door_t* pick_door(const door_t* doors) {
+const door_t* player_pick_door(const door_t* doors) {
     int p = PICK();
 
     if (p < 3333) {
@@ -11,7 +11,7 @@ const door_t* pick_door(const door_t* doors) {
     return &doors[2];
 }
 
-const door_t* pick_remaining_door(const door_t* doors, const door_t* previous_pick) {
+const door_t* player_pick_remaining_door(const door_t* doors, const door_t* previous_pick) {
     int i;
 
     for (i = 0; i < DEFAULT_NUMBER_OF_DOORS; i++) {
@@ -21,7 +21,7 @@ const door_t* pick_remaining_door(const door_t* doors, const door_t* previous_pi
     return NULL;
 }
 
-int change_door() {
+int player_change_door() {
     int choice = PICK();
 
     if (choice < 5000) {

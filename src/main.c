@@ -1,52 +1,38 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <time.h>
 
-#include "door.h"
 #include "monty_hall.h"
-#include "player.h"
+
+const static int DEFAULT_NUMBER_OF_GAMES_TO_PLAY = 10;
 
 int main(int argc, char const* argv[]) {
-    const door_t* winning_door = NULL;
-    const door_t* player_door = NULL;
-    door_t doors[DEFAULT_NUMBER_OF_DOORS];
-    int error;
+    int i;
+    int games_player_changed_door = 0, games_player_changed_door_won = 0,
+        games_player_kept_door = 0, games_player_kept_door_won = 0;
 
-    printf("Game show starting...\n");
+    srand(time(NULL));
 
-    error = game_start(doors, &winning_door);
-    if (error) {
-        printf("An error occured during initilization - Error: %d\n", error);
-        exit(-1);
-    }
+    for (i = 0; i < DEFAULT_NUMBER_OF_GAMES_TO_PLAY; i++) {
+        game_result_t result = play_game();
 
-    printf("Pick a door\n");
+        if (result.decision == KEEP_DOOR) {
+            games_player_kept_door++;
 
-    player_door = pick_door(doors);
+            if (result.player_win)
+                games_player_kept_door_won++;
+        } else {
+            games_player_changed_door++;
 
-    error = open_discarded_door(doors, winning_door, player_door);
-    if (error < 0) {
-        printf("An error occured while discarding a door - Error: %d\n", error);
-        exit(-1);
-    }
-
-    printf("Do you change your choice?\n");
-    if (change_door()) {
-        printf("YES!!\n");
-        player_door = pick_remaining_door(doors, player_door);
-        if (player_door == NULL) {
-            printf("An error occured while changing doors\n");
-            exit(-1);
+            if (result.player_win)
+                games_player_changed_door_won++;
         }
-    } else {
-        printf("No\n");
     }
 
-    if (player_door == winning_door) {
-        printf("We have a winner!!\n");
-    } else {
-        printf("You lose - Better luck next time!!\n");
-    }
+    printf("Games player: %d\n", i);
+    printf("Games player changed door: %d - won: %d\n",
+           games_player_changed_door, games_player_changed_door_won);
+    printf("Games player kept door: %d - won: %d\n", games_player_kept_door,
+           games_player_kept_door_won);
 
-    print_endgame(doors, winning_door);
     return 0;
 }

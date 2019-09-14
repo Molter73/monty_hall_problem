@@ -3,9 +3,11 @@
 
 #include "door.h"
 
-const door_t* pick_door(const door_t* doors);
-const door_t* pick_remaining_door(const door_t* doors, const door_t*);
+typedef enum __player_decision_s { KEEP_DOOR, CHANGE_DOOR } player_decision_t;
 
-int change_door();
+const door_t* player_pick_door(const door_t* doors);
+const door_t* player_pick_remaining_door(const door_t* doors, const door_t*);
+
+int player_change_door();
 
 #endif // __PLAYER_INCLUDED_H
