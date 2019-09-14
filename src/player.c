@@ -1,5 +1,7 @@
 #include "player.h"
 
+game_mode_t game_mode;
+
 const door_t* player_pick_door(const door_t* doors) {
     int p = PICK();
 
@@ -22,10 +24,16 @@ const door_t* player_pick_remaining_door(const door_t* doors, const door_t* prev
 }
 
 int player_change_door() {
-    int choice = PICK();
-
-    if (choice < 5000) {
+    switch (game_mode) {
+    case CHANGE:
+        return 1;
+    case KEEP:
         return 0;
+    case RANDOM:
+    default:
+        if (PICK() < 5000) {
+            return 0;
+        }
+        return 1;
     }
-    return 1;
 }
