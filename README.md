@@ -15,3 +15,7 @@ Compilation has been done through gcc on a Debian 10 machine, simply running mak
 Running the compiled ./build/game will run the Monty Hall game 1.000.000 times automatically and output the results unto the console.
 
 ./build/game -h for more options.
+
+## Documentation
+
+The Doxygen documentation for the project can be found at https://molter73.github.io/monty_hall_problem/
