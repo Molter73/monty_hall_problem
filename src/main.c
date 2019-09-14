@@ -97,7 +97,13 @@ int main(int argc, char* argv[]) {
 
     // Now actually play the game.
     for (i = 0; i < games_to_play; i++) {
-        game_result_t result = play_game();
+        game_result_t result;
+        int error;
+
+        error = play_game(&result);
+        if (error) {
+            return error;
+        }
 
         if (result.decision == KEEP_DOOR) {
             games_player_kept_door++;

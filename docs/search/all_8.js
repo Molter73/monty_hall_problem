@@ -1,7 +1,7 @@
 var searchData=
 [
   ['pick_27',['PICK',['../d2/d59/door_8h.html#a18e6d94559ddb1c1e7af33df167405e1',1,'door.h']]],
-  ['play_5fgame_28',['play_game',['../db/d22/monty__hall_8h.html#a076a371e762d9bc83f5837c54c8d70f0',1,'play_game():&#160;monty_hall.c'],['../de/d29/monty__hall_8c.html#a076a371e762d9bc83f5837c54c8d70f0',1,'play_game():&#160;monty_hall.c']]],
+  ['play_5fgame_28',['play_game',['../db/d22/monty__hall_8h.html#a0a8b8e64993b3458da1dc01ddc51b43b',1,'play_game(game_result_t *result):&#160;monty_hall.c'],['../de/d29/monty__hall_8c.html#a0a8b8e64993b3458da1dc01ddc51b43b',1,'play_game(game_result_t *result):&#160;monty_hall.c']]],
   ['player_2ec_29',['player.c',['../d1/db8/player_8c.html',1,'']]],
   ['player_2eh_30',['player.h',['../d3/d62/player_8h.html',1,'']]],
   ['player_5fchange_5fdoor_31',['player_change_door',['../d3/d62/player_8h.html#af564f41d9b269312377ed14dd688ff45',1,'player_change_door():&#160;player.c'],['../d1/db8/player_8c.html#af564f41d9b269312377ed14dd688ff45',1,'player_change_door():&#160;player.c']]],

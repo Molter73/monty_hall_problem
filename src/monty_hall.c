@@ -76,15 +76,15 @@ int open_discarded_door(door_t* doors, const door_t* winning_door, const door_t*
  * The winning door is never passed to the player_* functions, thus
  * representing this information as being hidden from the player, just as in real life.
  *
- * The result of the game is returned for later analysis and statistics.
+ * The result of the game is saved in the result structure for later analysis and statistics.
  *
- * @return game_result_t A structure holding information about the game that was just played.
+ * @param result A structure holding information about the game that was just played.
+ * @return 0 if all is well, -1 otherwise.
  */
-game_result_t play_game() {
+int play_game(game_result_t* result) {
     const door_t* winning_door = NULL;
     const door_t* player_door = NULL;
     door_t doors[DEFAULT_NUMBER_OF_DOORS];
-    game_result_t result;
     int error;
 
     verbose_print("Game show starting...\n");
@@ -92,7 +92,7 @@ game_result_t play_game() {
     error = game_start(doors, &winning_door);
     if (error) {
         verbose_print("An error occured during initilization - Error: %d\n", error);
-        exit(-1);
+        return -1;
     }
 
     verbose_print("Pick a door\n");
@@ -102,7 +102,7 @@ game_result_t play_game() {
     error = open_discarded_door(doors, winning_door, player_door);
     if (error < 0) {
         verbose_print("An error occured while discarding a door - Error: %d\n", error);
-        exit(-1);
+        return -1;
     }
 
     verbose_print("Do you change your choice?\n");
@@ -111,23 +111,23 @@ game_result_t play_game() {
         player_door = player_pick_remaining_door(doors, player_door);
         if (player_door == NULL) {
             verbose_print("An error occured while changing doors\n");
-            exit(-1);
+            return -1;
         }
-        result.decision = CHANGE_DOOR;
+        result->decision = CHANGE_DOOR;
     } else {
         verbose_print("No\n");
-        result.decision = KEEP_DOOR;
+        result->decision = KEEP_DOOR;
     }
 
     if (player_door == winning_door) {
         verbose_print("We have a winner!!\n");
-        result.player_win = 1;
+        result->player_win = 1;
     } else {
         verbose_print("You lose - Better luck next time!!\n");
-        result.player_win = 0;
+        result->player_win = 0;
     }
 
     print_endgame(doors, winning_door);
 
-    return result;
+    return 0;
 }

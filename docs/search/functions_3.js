@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['play_5fgame_60',['play_game',['../db/d22/monty__hall_8h.html#a076a371e762d9bc83f5837c54c8d70f0',1,'play_game():&#160;monty_hall.c'],['../de/d29/monty__hall_8c.html#a076a371e762d9bc83f5837c54c8d70f0',1,'play_game():&#160;monty_hall.c']]],
+  ['play_5fgame_60',['play_game',['../db/d22/monty__hall_8h.html#a0a8b8e64993b3458da1dc01ddc51b43b',1,'play_game(game_result_t *result):&#160;monty_hall.c'],['../de/d29/monty__hall_8c.html#a0a8b8e64993b3458da1dc01ddc51b43b',1,'play_game(game_result_t *result):&#160;monty_hall.c']]],
   ['player_5fchange_5fdoor_61',['player_change_door',['../d3/d62/player_8h.html#af564f41d9b269312377ed14dd688ff45',1,'player_change_door():&#160;player.c'],['../d1/db8/player_8c.html#af564f41d9b269312377ed14dd688ff45',1,'player_change_door():&#160;player.c']]],
   ['player_5fpick_5fdoor_62',['player_pick_door',['../d3/d62/player_8h.html#a78dfbfb37d60dbda420dd39cc8e59e04',1,'player_pick_door(const door_t *doors):&#160;player.c'],['../d1/db8/player_8c.html#a78dfbfb37d60dbda420dd39cc8e59e04',1,'player_pick_door(const door_t *doors):&#160;player.c']]],
   ['player_5fpick_5fremaining_5fdoor_63',['player_pick_remaining_door',['../d3/d62/player_8h.html#a8f5670eb98eda5cf9282ed9bdd2a871b',1,'player_pick_remaining_door(const door_t *doors, const door_t *):&#160;player.c'],['../d1/db8/player_8c.html#a638ce7d7d4035a8c5abca5aac108b03c',1,'player_pick_remaining_door(const door_t *doors, const door_t *previous_pick):&#160;player.c']]],
