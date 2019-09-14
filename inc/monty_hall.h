@@ -4,6 +4,7 @@
 #include "door.h"
 #include "player.h"
 
+/// A structure holding information used for statistics.
 typedef struct __game_result_s {
     player_decision_t decision;
     int player_win;

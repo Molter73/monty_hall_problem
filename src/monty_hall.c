@@ -4,6 +4,16 @@
 #include "monty_hall.h"
 #include "print.h"
 
+/**
+ * @brief Initializes doors for the next game.
+ *
+ * Initializes all doors as closed and picks one at random to be used as the
+ * winning door.
+ *
+ * @param doors An array of doors to be initialized.
+ * @param winning_door A pointer to the door that will win the game.
+ * @return int Returns 0 always.
+ */
 int game_start(door_t* doors, const door_t* winning_door[]) {
     int i;
 
@@ -26,6 +36,17 @@ int game_start(door_t* doors, const door_t* winning_door[]) {
     return 0;
 }
 
+/**
+ * @brief Reveals one of the doors as having a goat.
+ *
+ * Takes in an array of doors, decides which door is neither the winning, nor
+ * the player picked door and reveals that it holds a goat behind it.
+ *
+ * @param doors An array of doors to search through.
+ * @param winning_door A pointer to the winning door.
+ * @param player_door A pointer to the door picked by the player.
+ * @return int Returns 0 if it was able to discard a door, -1 otherwise.
+ */
 int open_discarded_door(door_t* doors, const door_t* winning_door, const door_t* player_door) {
     int i;
     // Find a close door that is not the player pick or the winning one
@@ -39,6 +60,21 @@ int open_discarded_door(door_t* doors, const door_t* winning_door, const door_t*
     return -1;
 }
 
+/**
+ * @brief Plays the Monty Hall game
+ *
+ * This is where the game is actually played.
+ * It first initializes 3 doors closed doors and picks one to be the winner.
+ * The player then chooses a door, the door that is not chosen and is not the
+ * winning door gets immediately discarded.
+ * The player gets a chance to changes it's mind before revealing if it's door
+ * is the winner.
+ * The winning door is never passed to the player_* functions, thus
+ * representing this information as being hidden to the player, (just as in real life).
+ * The result of the game is returned for later analysis and statistics.
+ *
+ * @return game_result_t A structure holding information about the game that was just played.
+ */
 game_result_t play_game() {
     const door_t* winning_door = NULL;
     const door_t* player_door = NULL;
