@@ -3,17 +3,28 @@
 #include <stdlib.h>
 #include <string.h>
 #include <getopt.h>
+#include <stdint.h>
 
 #include "monty_hall.h"
 #include "print.h"
 
 const static int DEFAULT_NUMBER_OF_GAMES_TO_PLAY = 1000000;
 
+void print_help() {
+    printf("Usage: game [options]\n");
+    printf("Options:\n");
+    printf("  -h            Display help\n");
+    printf("  -v            Display each game played\n");
+    printf("  -c <num>      Play the game num times\n");
+    printf("  -m {keep|change|random}\n");
+    printf("                Specify the game mode to play\n");
+}
+
 int main(int argc, char* argv[]) {
-    int i, c;
-    int games_to_play;
-    int games_player_changed_door = 0, games_player_changed_door_won = 0,
-        games_player_kept_door = 0, games_player_kept_door_won = 0;
+    int32_t i, c;
+    uint32_t games_to_play;
+    uint32_t games_player_changed_door = 0, games_player_changed_door_won = 0,
+             games_player_kept_door = 0, games_player_kept_door_won = 0;
 
     srand(time(NULL));
 
@@ -21,7 +32,7 @@ int main(int argc, char* argv[]) {
     game_mode = RANDOM;
     games_to_play = DEFAULT_NUMBER_OF_GAMES_TO_PLAY;
 
-    while ((c = getopt(argc, argv, "vc:m:")) != -1) {
+    while ((c = getopt(argc, argv, "vc:m:h")) != -1) {
         switch (c) {
         case 'v':
             verbose = -1;
@@ -37,9 +48,17 @@ int main(int argc, char* argv[]) {
             } else if (!strcmp(optarg, "random")) {
                 break;
             } else {
-                exit(-1);
+                printf("Invalid argument %s for -m\n", optarg);
+                print_help();
+                return -1;
             }
             break;
+        case 'h':
+            print_help();
+            return 0;
+        case '?':
+            print_help();
+            return -1;
         default:
             break;
         }
