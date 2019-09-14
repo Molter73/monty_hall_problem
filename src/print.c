@@ -3,9 +3,19 @@
 
 #include "print.h"
 
+/// A variable describing whether the verbose_print should print to console.
 int verbose;
 
-int verbose_print(const char* format, ...) {
+/**
+ * @brief A simple wrapper over printf.
+ *
+ * Chooses to write out to console based on the value of the verbose variable.
+ *
+ * @param format A string holding the format to be printed
+ * @param ... Variable arguments used to format the string.
+ * @return int Same as vprintf...
+ */
+int verbose_print(const char* restrict format, ...) {
     int ret;
     if (!verbose)
         return 0;
