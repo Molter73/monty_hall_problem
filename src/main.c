@@ -39,6 +39,11 @@ int main(int argc, char* argv[]) {
             break;
         case 'c':
             games_to_play = atoi(optarg);
+            if (games_to_play == 0) {
+                printf("Invalid argument %s for -c\n", optarg);
+                print_help();
+                return -1;
+            }
             break;
         case 'm':
             if (!strcmp(optarg, "keep")) {
