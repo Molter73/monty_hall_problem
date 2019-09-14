@@ -64,13 +64,18 @@ int open_discarded_door(door_t* doors, const door_t* winning_door, const door_t*
  * @brief Plays the Monty Hall game
  *
  * This is where the game is actually played.
- * It first initializes 3 doors closed doors and picks one to be the winner.
- * The player then chooses a door, the door that is not chosen and is not the
+ *
+ * It first initializes 3 closed doors and picks one to be the winner.
+ *
+ * The player then chooses a door. The door that is not chosen and is not the
  * winning door gets immediately discarded.
- * The player gets a chance to changes it's mind before revealing if it's door
+ *
+ * The player gets a chance to change it's mind before revealing if it's door
  * is the winner.
+ *
  * The winning door is never passed to the player_* functions, thus
- * representing this information as being hidden to the player, (just as in real life).
+ * representing this information as being hidden from the player, just as in real life.
+ *
  * The result of the game is returned for later analysis and statistics.
  *
  * @return game_result_t A structure holding information about the game that was just played.
