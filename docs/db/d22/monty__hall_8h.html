@@ -92,9 +92,9 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a076a371e762d9bc83f5837c54c8d70f0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/d22/monty__hall_8h.html#a3f05dcd73dd325ee96e6a10993553ed3">game_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d22/monty__hall_8h.html#a076a371e762d9bc83f5837c54c8d70f0">play_game</a> ()</td></tr>
-<tr class="memdesc:a076a371e762d9bc83f5837c54c8d70f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the Monty Hall game.  <a href="../../db/d22/monty__hall_8h.html#a076a371e762d9bc83f5837c54c8d70f0">More...</a><br /></td></tr>
-<tr class="separator:a076a371e762d9bc83f5837c54c8d70f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a8b8e64993b3458da1dc01ddc51b43b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d22/monty__hall_8h.html#a0a8b8e64993b3458da1dc01ddc51b43b">play_game</a> (<a class="el" href="../../db/d22/monty__hall_8h.html#a3f05dcd73dd325ee96e6a10993553ed3">game_result_t</a> *result)</td></tr>
+<tr class="memdesc:a0a8b8e64993b3458da1dc01ddc51b43b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays the Monty Hall game.  <a href="../../db/d22/monty__hall_8h.html#a0a8b8e64993b3458da1dc01ddc51b43b">More...</a><br /></td></tr>
+<tr class="separator:a0a8b8e64993b3458da1dc01ddc51b43b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a3f05dcd73dd325ee96e6a10993553ed3"></a>
@@ -114,16 +114,17 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a076a371e762d9bc83f5837c54c8d70f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a076a371e762d9bc83f5837c54c8d70f0">&#9670;&nbsp;</a></span>play_game()</h2>
+<a id="a0a8b8e64993b3458da1dc01ddc51b43b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a8b8e64993b3458da1dc01ddc51b43b">&#9670;&nbsp;</a></span>play_game()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d22/monty__hall_8h.html#a3f05dcd73dd325ee96e6a10993553ed3">game_result_t</a> play_game </td>
+          <td class="memname">int play_game </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../db/d22/monty__hall_8h.html#a3f05dcd73dd325ee96e6a10993553ed3">game_result_t</a> *&#160;</td>
+          <td class="paramname"><em>result</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -135,8 +136,14 @@ Functions</h2></td></tr>
 <p>The player then chooses a door. The door that is not chosen and is not the winning door gets immediately discarded.</p>
 <p>The player gets a chance to change it's mind before revealing if it's door is the winner.</p>
 <p>The winning door is never passed to the player_* functions, thus representing this information as being hidden from the player, just as in real life.</p>
-<p>The result of the game is returned for later analysis and statistics.</p>
-<dl class="section return"><dt>Returns</dt><dd>game_result_t A structure holding information about the game that was just played. </dd></dl>
+<p>The result of the game is saved in the result structure for later analysis and statistics.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>A structure holding information about the game that was just played. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if all is well, -1 otherwise. </dd></dl>
 
 </div>
 </div>
